@@ -1,11 +1,21 @@
-import React from 'react'
-
+import React from "react";
+import "../header/styled.css";
+import image1 from "../../utils/image1.png";
 const Header = () => {
   return (
-    <div>
-      <h1>Header</h1>
-    </div>
-  )
-}
+    <div className="div1">
+      <div className="div2">
+        <div className="div_img">
+          <img src={image1} alt="logo-pokemon" />
+        </div>
 
-export default Header
+        
+      </div>
+      <div className="div_button">
+          <button className="button_header">Pokédex</button>
+        </div>
+    </div>
+  );
+};
+
+export default Header;
