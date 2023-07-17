@@ -16,6 +16,8 @@ const Pokedex = () => {
     <PokemonCard />
     <PokemonCard />
     <PokemonCard />
+    <PokemonCard />
+    <PokemonCard />
   </div>
 </div>
       
