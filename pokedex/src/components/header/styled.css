@@ -13,6 +13,7 @@
   width: 19.1875rem;
   height: 7.0625rem;
   margin: 1.31rem auto;
+  cursor: pointer;
 }
 
 .div_button {
@@ -35,4 +36,5 @@
   margin: 2.56rem 2.81rem;
   background: #33a4f5;
   border: none;
+  cursor: pointer;
 }

@@ -28,6 +28,7 @@
     text-decoration-line: underline;
     background-color: inherit;
     border: none;
+    cursor: pointer;
 
 }
 .add_button{

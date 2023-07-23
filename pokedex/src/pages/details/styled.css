@@ -71,12 +71,12 @@
 .type {
   height: 10rem;
   width:100%;
-  background-color: blue;
+  background-color: #ffffff;
 }
 .moves {
   margin-top: 3.25rem;
   width: 100%;
   height: 25rem;
   border-radius: 0.5rem;
-  background: red;
+  background: #ffffff;
 }
