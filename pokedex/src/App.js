@@ -1,12 +1,14 @@
 import DetailPage from './pages/details/DetailPage';
 import Home from './pages/home/Home';
 import Pokedex from './pages/pokedex/Pokedex';
+import Router from './routes/Router';
 function App() {
   return (
     <div>
-     <Home />
+     {/* <Home />
      <DetailPage />
-     <Pokedex />
+     <Pokedex /> */}
+     <Router />
     
     
 

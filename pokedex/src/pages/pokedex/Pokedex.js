@@ -8,7 +8,9 @@ const Pokedex = () => {
   <div>
   <Header />
   </div>
+  
   <div className='card_div'>
+ 
     <PokemonCard />
     <PokemonCard />
     <PokemonCard />
