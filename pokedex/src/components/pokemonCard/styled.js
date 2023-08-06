@@ -25,6 +25,7 @@ export const PokemonName = styled.h1`
   letter-spacing: 0em;
   text-align: left;
   margin-bottom: 10px;
+  text-transform: capitalize;
 `;
 
 export const TypesContainer = styled.div`
