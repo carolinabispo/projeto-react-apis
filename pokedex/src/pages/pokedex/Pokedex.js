@@ -10,7 +10,7 @@ const Pokedex = () => {
   </div>
   
   <div className='card_div'>
- 
+    
     <PokemonCard />
     <PokemonCard />
     <PokemonCard />

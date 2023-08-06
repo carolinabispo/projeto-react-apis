@@ -1,24 +1,50 @@
-import React from 'react'
-import "../pokemonCard/styled.css"
-import { goToDetails } from '../../routes/Coordinator'
-import { Navigate, useNavigate } from 'react-router-dom'
+import React, { useContext, useEffect, useState } from "react";
+import pokeball from "../../utils/pokebola.png";
+import { goToDetails } from "../../routes/Coordinator";
+import { useNavigate } from "react-router-dom";
+import {
+  CatchButton,
+  Container,
+  DetailsButton,
+  Pokeball,
+  Pokemon,
+  PokemonName,
+  PokemonNumber,
+  Types,
+  TypesContainer,
+} from "./styled";
 
+const PokemonCard = ({ name, image,id,types }) => {
+  const navigate = useNavigate();
 
-const PokemonCard = () => {
-  const navigate = useNavigate()
+  const handleType = ()=>{
+    if(types[1]){
+      return types[0].type.name +" "+ types[1].type.name
+    }else { return types[0].type.name}
+  }
+
+console.log(types);
   return (
-     <div className='container'>
-        <div className='div_img'>
-          <img src="" alt="" />
-        </div>
-        <div className='details_cacth'>
-          <button onClick={()=>goToDetails(navigate)} className='details'>Detalhes</button>
-          <button className='add_button'>Capturar!</button>
+    <Container>
+      <div>
+        <PokemonNumber>{id}</PokemonNumber>
+        <PokemonName>{name}</PokemonName>
+        <TypesContainer>
+          <Types>
+          {handleType()}
+          </Types>
+        </TypesContainer>
+        <DetailsButton onClick={() => goToDetails(navigate)}>
+          Details
+        </DetailsButton>
+      </div>
+      <div>
+        <Pokemon src={image} alt="" />
+        <CatchButton>Cath!</CatchButton>
+      </div>
+      <Pokeball src={pokeball} alt="" />
+    </Container>
+  );
+};
 
-
-        </div>
-     </div>
-  )
-}
-
-export default PokemonCard
+export default PokemonCard;
