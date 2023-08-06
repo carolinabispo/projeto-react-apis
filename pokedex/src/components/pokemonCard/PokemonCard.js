@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React from "react";
 import pokeball from "../../utils/pokebola.png";
 import { goToDetails } from "../../routes/Coordinator";
 import { useNavigate } from "react-router-dom";
@@ -10,28 +10,35 @@ import {
   Pokemon,
   PokemonName,
   PokemonNumber,
+  PokemonType,
   Types,
   TypesContainer,
 } from "./styled";
+import { getTypes } from "../../functions/ReturnPokemonsTypes";
 
-const PokemonCard = ({ name, image,id,types }) => {
+
+const PokemonCard = ({ name, image,id,types,cardColor }) => {
   const navigate = useNavigate();
 
-  const handleType = ()=>{
-    if(types[1]){
-      return types[0].type.name +" "+ types[1].type.name
-    }else { return types[0].type.name}
-  }
+  // const {pokemonCart,pokemonAmount,addToPokedex} = useContext(PokemonCardContext)
 
-console.log(types);
+  // const handleType = ()=>{
+  //   if(types[1]){
+  //     return types[0].type.name +" "+ types[1].type.name
+  //   }else { return types[0].type.name}
+  // }
+
   return (
-    <Container>
+    <Container color={cardColor}>
       <div>
         <PokemonNumber>{id}</PokemonNumber>
         <PokemonName>{name}</PokemonName>
         <TypesContainer>
           <Types>
-          {handleType()}
+            {types.map((type)=>{ 
+              return <PokemonType key={type} src={getTypes(type)} alt="" />
+            })}
+          {/* {handleType()} */}
           </Types>
         </TypesContainer>
         <DetailsButton onClick={() => goToDetails(navigate)}>
@@ -40,7 +47,7 @@ console.log(types);
       </div>
       <div>
         <Pokemon src={image} alt="" />
-        <CatchButton>Cath!</CatchButton>
+        <CatchButton >Cath!</CatchButton>
       </div>
       <Pokeball src={pokeball} alt="" />
     </Container>

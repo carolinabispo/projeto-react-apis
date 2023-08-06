@@ -1,8 +1,10 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext} from "react";
 import Header from "../../components/header/Header";
 import "../home/style.css";
 import PokemonCard from "../../components/pokemonCard/PokemonCard";
 import { ApiContext } from "../../contexts/useApiContext";
+import { getColors } from "../../functions/ReturnCardColors";
+
 const Home = () => {
   const { pokemons } = useContext(ApiContext);
 
@@ -17,7 +19,9 @@ const Home = () => {
             <p>Todos os pokémons</p>
           </div>
           {pokemons.map((pokemon) => (
-            <PokemonCard key={pokemon.name}
+            <PokemonCard
+              key={pokemon.name}
+              cardColor={getColors(pokemon.types[0])}
               pokemon={pokemon}
               id={pokemon.id}
               name={pokemon.name}
