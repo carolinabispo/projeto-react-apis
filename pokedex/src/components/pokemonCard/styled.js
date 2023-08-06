@@ -5,7 +5,7 @@ export const Container = styled.div`
   height: 13.125rem;
   min-width: 400px;
   max-width: 440px;
-  background-color: #729f92;
+  background-color: ${(props) => props.color};
   border-radius: 12px;
   display: flex;
   position: relative;
@@ -29,23 +29,28 @@ export const PokemonName = styled.h1`
 
 export const TypesContainer = styled.div`
   margin-bottom: 52px;
-  /* display: inline-flex;
-align-items: flex-start; */
-display: flex;
-padding: 0.3125rem 0.5rem;
-align-items: flex-start;
-
+  display: flex;
+  padding: 0.3125rem 0.5rem;
+  align-items: flex-start;
 `;
 
-export const Types =styled.div`
-display: flex;
-padding: 0.3125rem 0.5rem;
-align-items: flex-start;
-border-radius: 0.5rem;
-border: 1px dashed rgba(255, 255, 255, 0.47);
-background: #70B873;
+export const PokemonType = styled.img`
+  max-width: 100px;
+  height: 32px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px dashed #ffffff;
+  margin-right: 8px;
+  margin-left: -1.44rem;
+`;
 
-`
+export const Types = styled.div`
+  display: flex;
+  padding: 0.3125rem 0.5rem;
+  align-items: flex-start;
+  border-radius: 0.5rem;
+  gap: 1.5rem;
+`;
 
 export const Pokeball = styled.img`
   position: absolute;

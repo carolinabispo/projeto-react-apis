@@ -6,11 +6,11 @@ export const ApiContext = createContext();
 
 const ApiProvider = ({ children }) => {
   const [pokemons, setPokemons] = useState([]);
-
+  console.log(pokemons);
   const getPokemons = async () => {
     try {
       const endPoints = [];
-      for (let i = 1; i <= 30; i++) {
+      for (let i = 1; i <= 40; i++) {
         endPoints.push(axios.get(`${BASE_URL}/${i}`));
       }
       const response = await axios.all(endPoints);
@@ -21,13 +21,15 @@ const ApiProvider = ({ children }) => {
     }
   };
 
+
+
   useEffect(() => {
     getPokemons();
   }, []);
-  console.log(pokemons);
+
 
   return (
-    <ApiContext.Provider value={{ pokemons, setPokemons }}>
+    <ApiContext.Provider value={{ pokemons, setPokemons}}>
       {children}
     </ApiContext.Provider>
   );
