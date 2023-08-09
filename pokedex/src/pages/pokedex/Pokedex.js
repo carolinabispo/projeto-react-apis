@@ -18,6 +18,7 @@ const Pokedex = () => {
       <div className="title_pokedex">
         <p>Meus pokémons</p>
       </div>
+      
 
 
 
