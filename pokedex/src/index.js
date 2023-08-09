@@ -3,15 +3,17 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import ApiProvider from "./contexts/useApiContext";
+import PokemonCardProvider from "./contexts/PokemonCardContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <ApiProvider>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  </ApiProvider>
-  
+  <PokemonCardProvider>
+    <ApiProvider>
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    </ApiProvider>
+  </PokemonCardProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

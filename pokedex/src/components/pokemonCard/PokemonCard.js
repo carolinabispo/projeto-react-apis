@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import pokeball from "../../utils/pokebola.png";
 import { goToDetails } from "../../routes/Coordinator";
 import { useNavigate } from "react-router-dom";
@@ -15,12 +15,14 @@ import {
   TypesContainer,
 } from "./styled";
 import { getTypes } from "../../functions/ReturnPokemonsTypes";
+import { ApiContext } from "../../contexts/useApiContext";
+import { PokemonCardContext } from "../../contexts/PokemonCardContext";
 
 
-const PokemonCard = ({ name, image,id,types,cardColor }) => {
+const PokemonCard = ({ pokemon,name, image,id,types,cardColor }) => {
   const navigate = useNavigate();
-
-  // const {pokemonCart,pokemonAmount,addToPokedex} = useContext(PokemonCardContext)
+  
+  const {addToPokedex} = useContext(PokemonCardContext)
 
   // const handleType = ()=>{
   //   if(types[1]){
@@ -47,7 +49,7 @@ const PokemonCard = ({ name, image,id,types,cardColor }) => {
       </div>
       <div>
         <Pokemon src={image} alt="" />
-        <CatchButton >Cath!</CatchButton>
+        <CatchButton onClick={()=>addToPokedex(pokemon,name)}>Cath!</CatchButton>
       </div>
       <Pokeball src={pokeball} alt="" />
     </Container>

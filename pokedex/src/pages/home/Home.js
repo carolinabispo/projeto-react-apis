@@ -4,6 +4,7 @@ import "../home/style.css";
 import PokemonCard from "../../components/pokemonCard/PokemonCard";
 import { ApiContext } from "../../contexts/useApiContext";
 import { getColors } from "../../functions/ReturnCardColors";
+import { Card, Title } from "./style";
 
 const Home = () => {
   const { pokemons } = useContext(ApiContext);
@@ -14,10 +15,10 @@ const Home = () => {
         <div>
           <Header />
         </div>
-        <div className="card">
-          <div className="title">
+        <Card className="card">
+          <Title className="title">
             <p>Todos os pokémons</p>
-          </div>
+          </Title>
           {pokemons.map((pokemon) => (
             <PokemonCard
               key={pokemon.name}
@@ -29,7 +30,7 @@ const Home = () => {
               types={pokemon.types}
             />
           ))}
-        </div>
+        </Card>
       </div>
     </div>
   );
