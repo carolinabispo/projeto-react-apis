@@ -18,7 +18,6 @@ const Pokedex = () => {
       <div className="title_pokedex">
         <p>Meus pokémons</p>
       </div>
-
       <div className="card_div">
         {pokemonCart.map((capturedPokemon) => (
           <PokemonCard

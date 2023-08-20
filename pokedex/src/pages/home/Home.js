@@ -1,6 +1,5 @@
 import React, { useContext} from "react";
 import Header from "../../components/header/Header";
-import "../home/style.css";
 import PokemonCard from "../../components/pokemonCard/PokemonCard";
 import { ApiContext } from "../../contexts/useApiContext";
 import { getColors } from "../../functions/ReturnCardColors";

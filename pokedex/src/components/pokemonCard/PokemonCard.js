@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import pokeball from "../../utils/pokebola.png";
 import { goToDetails } from "../../routes/Coordinator";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   CatchButton,
   Container,
@@ -15,12 +15,14 @@ import {
   TypesContainer,
 } from "./styled";
 import { getTypes } from "../../functions/ReturnPokemonsTypes";
+import { ApiContext } from "../../contexts/useApiContext";
+import { PokemonCardContext } from "../../contexts/PokemonCardContext";
+import DetailPage from "../../pages/details/DetailPage";
 
-
-const PokemonCard = ({ name, image,id,types,cardColor }) => {
+const PokemonCard = ({ pokemon, name, image, id, types, cardColor }) => {
   const navigate = useNavigate();
 
-  // const {pokemonCart,pokemonAmount,addToPokedex} = useContext(PokemonCardContext)
+  const { addToPokedex } = useContext(PokemonCardContext);
 
   // const handleType = ()=>{
   //   if(types[1]){
@@ -35,19 +37,23 @@ const PokemonCard = ({ name, image,id,types,cardColor }) => {
         <PokemonName>{name}</PokemonName>
         <TypesContainer>
           <Types>
-            {types.map((type)=>{ 
-              return <PokemonType key={type} src={getTypes(type)} alt="" />
+            {types.map((type) => {
+              return <PokemonType key={type} src={getTypes(type)} alt="" />;
             })}
-          {/* {handleType()} */}
+            {/* {handleType()} */}
           </Types>
         </TypesContainer>
-        <DetailsButton onClick={() => goToDetails(navigate)}>
-          Details
-        </DetailsButton>
+        <Link to={`/details/${id}`}>
+          <DetailsButton>
+            <DetailPage/>
+          </DetailsButton>
+        </Link>
       </div>
       <div>
         <Pokemon src={image} alt="" />
-        <CatchButton >Cath!</CatchButton>
+        <CatchButton onClick={() => addToPokedex(pokemon, name)}>
+          Cath!
+        </CatchButton>
       </div>
       <Pokeball src={pokeball} alt="" />
     </Container>
