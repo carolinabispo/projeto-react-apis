@@ -17,7 +17,6 @@ import {
 import { getTypes } from "../../functions/ReturnPokemonsTypes";
 import { ApiContext } from "../../contexts/useApiContext";
 import { PokemonCardContext } from "../../contexts/PokemonCardContext";
-import DetailPage from "../../pages/details/DetailPage";
 
 const PokemonCard = ({ pokemon, name, image, id, types, cardColor }) => {
   const navigate = useNavigate();
@@ -33,7 +32,7 @@ const PokemonCard = ({ pokemon, name, image, id, types, cardColor }) => {
   return (
     <Container color={cardColor}>
       <div>
-        <PokemonNumber>{id}</PokemonNumber>
+        <PokemonNumber>{`# ${ id}`}</PokemonNumber>
         <PokemonName>{name}</PokemonName>
         <TypesContainer>
           <Types>
@@ -45,7 +44,7 @@ const PokemonCard = ({ pokemon, name, image, id, types, cardColor }) => {
         </TypesContainer>
         <Link to={`/details/${id}`}>
           <DetailsButton>
-            <DetailPage/>
+            Details
           </DetailsButton>
         </Link>
       </div>

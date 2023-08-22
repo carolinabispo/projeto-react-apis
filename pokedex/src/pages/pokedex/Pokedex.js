@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
-import Header from "../../components/header/Header";
 import PokemonCard from "../../components/pokemonCard/PokemonCard";
-import "../pokedex/styled.css";
 import { ApiContext } from "../../contexts/useApiContext";
 import { getColors } from "../../functions/ReturnCardColors";
 import { PokemonCardContext } from "../../contexts/PokemonCardContext";
+import HeaderPokedex from "../../components/headerPokedex/HeaderPokedex";
+import { CardDiv, TitlePokedex } from "./styled";
 const Pokedex = () => {
   const { pokemons } = useContext(ApiContext);
   console.log(pokemons);
@@ -13,12 +13,12 @@ const Pokedex = () => {
   return (
     <>
       <div className="header_pokedex">
-        <Header />
+        <HeaderPokedex />
       </div>
-      <div className="title_pokedex">
+      <TitlePokedex className="title_pokedex">
         <p>Meus pokémons</p>
-      </div>
-      <div className="card_div">
+      </TitlePokedex>
+      <CardDiv>
         {pokemonCart.map((capturedPokemon) => (
           <PokemonCard
             cardColor={getColors(capturedPokemon.pokemon.types[0])}
@@ -32,7 +32,7 @@ const Pokedex = () => {
             types={capturedPokemon.pokemon.types}
           />
         ))}
-      </div>
+      </CardDiv>
     </>
   );
 };

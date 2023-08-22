@@ -1,23 +1,18 @@
 import styled from "styled-components";
 
-
-
-export const Card = styled.div`
+export const CardDiv = styled.div`
   display: flex;
   flex-wrap: wrap;
-  background-color: #5e5e5e;
+  background: #5e5e5e;
+  height: 100vh;
+  width: 100vw;
   justify-content: center;
   gap: 1.25rem;
   padding: 5rem;
-  
-
 `;
 
-export const Title = styled.div`
-  /* display: flex; */
+export const TitlePokedex = styled.div`
   flex-wrap: wrap;
-  /* justify-content: first baseline; */
-  /* margin-bottom: 3.5rem; */
   padding-top: 1.5rem;
   padding-left: 2.5rem;
   color: #ffffff;
@@ -30,4 +25,3 @@ export const Title = styled.div`
   height: 5rem;
   background-color: #5e5e5e;
 `;
-

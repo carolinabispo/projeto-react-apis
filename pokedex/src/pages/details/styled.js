@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   background-color: #5e5e5e;
-  width: 100vw;
-  height: 100vh;
+  /* width: 100vw; */
+  /* height: 100vh; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,13 +18,13 @@ export const DetailsContainer = styled.div`
   width: 86.82144rem;
   height: 41.4375rem;
   border-radius: 2.36788rem;
-  background: ${(props) => props.color};
-`;
+  background-color: red;
+ `;
 
 export const Title = styled.div`
   width: 13.75rem;
   height: 4.5rem;
-  color: #fff;
+  color: #ffffff;
   font-family: Poppins;
   font-size: 3rem;
   font-style: normal;
@@ -80,4 +80,31 @@ export const MovesContainer = styled.div`
   height: 25rem;
   border-radius: 0.5rem;
   background: #ffffff;
+`;
+
+
+export const StatBar = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+
+  .label {
+    width: 100px;
+    font-weight: bold;
+  }
+
+  .bar {
+    flex: 1;
+    background-color: #e0e0e0;
+    height: 20px;
+    border-radius: 10px;
+    margin-left: 10px;
+    position: relative;
+
+    .progress {
+      height: 100%;
+      background-color: #00aaff;
+      border-radius: 10px;
+    }
+  }
 `;

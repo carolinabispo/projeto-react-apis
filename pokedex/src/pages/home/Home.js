@@ -1,23 +1,26 @@
-import React, { useContext} from "react";
+import React, { useContext } from "react";
 import Header from "../../components/header/Header";
 import PokemonCard from "../../components/pokemonCard/PokemonCard";
 import { ApiContext } from "../../contexts/useApiContext";
 import { getColors } from "../../functions/ReturnCardColors";
-import { Card } from "./styled";
+import { Card, Title, Container } from "./styled";
 
 const Home = () => {
   const { pokemons } = useContext(ApiContext);
 
   return (
-    <div>
-      <div className="div_home">
-        <div>
+    <> 
+      <div>
           <Header />
         </div>
-        <Card className="card">
-          <div className="title">
+      <div >
+       
+        <Title>
             <p>Todos os pokémons</p>
-          </div>
+          </Title>
+   
+        <Card>
+          
           {pokemons.map((pokemon) => (
             <PokemonCard
               key={pokemon.name}
@@ -31,7 +34,7 @@ const Home = () => {
           ))}
         </Card>
       </div>
-    </div>
+    </>
   );
 };
 
