@@ -22,7 +22,7 @@ export const getTypes = (types) => {
     switch (types.type.name) {
       case "bug":
         return bug;
-      case "bark":
+      case "dark":
         return dark;
       case "dragon":
         return dragon;
