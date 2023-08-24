@@ -1,5 +1,5 @@
 import React, {createContext,useEffect,useState} from "react"
-
+import image1 from '../utils/image1.png'
 export const PokemonCardContext = createContext()
 
 const PokemonCardProvider = ({children})=>{
@@ -24,9 +24,13 @@ const PokemonCardProvider = ({children})=>{
     setPokemonCart([...pokemonCart,{pokemon,name, amount: 1}])
    }
 
-
+   const removePokemon = (name) => {
+    const pokemonRemove = pokemonCart.filter((pokemon) => pokemon.name !== name);
+    setPokemonCart(pokemonRemove);
+    
+  };
 return(
-    <PokemonCardContext.Provider value={{pokemonCart,pokemonAmount,addToPokedex}}>
+    <PokemonCardContext.Provider value={{pokemonCart,pokemonAmount,addToPokedex, removePokemon}}>
         {children}
     </PokemonCardContext.Provider>
 

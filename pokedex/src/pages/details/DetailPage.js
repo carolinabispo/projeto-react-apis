@@ -10,16 +10,22 @@ import {
   FrontBackImageContainer,
   Image,
   StatusContainer,
-  StatBar
+  StatBar,
+  ButtonMoves,
+  MovesFont,
+  PokemonNumberDetail,
+  PokemonNameDetail,
+  ImageDetail,
+  Moves,
+  TitleDetails,
+  BaseTitle,
+  Amount,
 } from "../details/styled";
 import { getTypes } from "../../functions/ReturnPokemonsTypes";
 import HeaderDetails from "../../components/headerDetails/HeaderDetails";
 import { getColors } from "../../functions/ReturnCardColors";
 
 const DetailPage = () => {
-
-
-
   const { id } = useParams();
   const { pokemons } = useContext(ApiContext);
   const pokemonDetail = pokemons.find((item) => item.id === parseInt(id));
@@ -28,80 +34,79 @@ const DetailPage = () => {
     return null; // Return null or an error message if the Pokemon is not found
   }
 
-  const { name, sprites, stats, types,moves } = pokemonDetail;
+  const { name, sprites, stats, types, moves } = pokemonDetail;
   const frontDefault = sprites?.front_default;
   const backDefault = sprites?.back_default;
   const total = stats.reduce((sum, stat) => sum + stat.base_stat, 0);
 
-  const color = getColors(types[0])
+  const color = getColors(types[0]);
 
-  for(let i =1;i <=4; )
-  
-  return (
-    <>
-      <HeaderDetails />
+  for (let i = 1; i <= 4; )
+    return (
+      <>
+      <div>
+        <HeaderDetails deletePokemon={name}/>
+      </div>
+      
+      <TitleDetails>Detalhes</TitleDetails>
+
       <Container>
-        <Title>Detalhes</Title>
-        <DetailsContainer style={{ backgroundColor: color}}>
+        <DetailsContainer style={{ backgroundColor: color }}>
           <FrontBackImageContainer>
             <Image src={frontDefault} alt="front" />
             <Image src={backDefault} alt="back" />
           </FrontBackImageContainer>
+
           <StatusContainer>
-            <h2>stats</h2>
-            <ul>
-              {/* {stats.map((stat) => (
-                <li key={stat.stat.name}>
-                  {stat.stat.name}: {stat.base_stat}
-                </li>
-              ))} */}
-                 {stats.map((stat) => (
+              <BaseTitle>Base Stats</BaseTitle>
+              {stats.map((stat) => (
                 <StatBar key={stat.stat.name}>
-                  <div className="label">{stat.stat.name}</div>
+                  <div className="label">{stat.stat.name} <span className="number">{stat.base_stat}</span></div>
                   <div className="bar">
                     <div
                       className="progress"
-                      style={{ width: `${(stat.base_stat)}%` }}
+                      style={{ width: `${stat.base_stat}%` }}
                     />
                   </div>
                 </StatBar>
+
               ))}
-              <li>Total: {total}</li>
-            </ul>
-          </StatusContainer>
+              <Amount> <span className="total">Total:</span> <span className="soma">{total}</span></Amount>
+            </StatusContainer>
           <div className="teste">
             <TypeContainer>
-              {types && (
-                <>
-                  <div>
-                    <img
-                      src={sprites.other["official-artwork"].front_default}
-                      alt=""
-                    />
-                  </div>
-                  {types.map((type) => (
-                    <img key={type} src={getTypes(type)} alt="" />
-                  ))}
-                </>
-              )}
-              {name}
+              <>
+                <PokemonNumberDetail>{`# ${id}`}</PokemonNumberDetail>
+                <PokemonNameDetail>{name}</PokemonNameDetail>
+                <ImageDetail
+                  src={sprites.other["official-artwork"].front_default}
+                  alt=""
+                />
+                <br />
+                {types.map((type) => (
+                  <img key={type} src={getTypes(type)} alt="" />
+                ))}
+              </>
             </TypeContainer>
             <MovesContainer>
-              <h2>moves</h2>
-              <ul>
-                {moves.filter((move,id)=>id < 4).map((item,id)=>(
-                  
-                    <li key={id}>{item.move.name}</li>
-                  
-                ))}
-                
-              </ul>
+              <MovesFont>Moves:
+              <Moves>
+                {moves
+                  .filter((move, id) => id < 4)
+                  .map((item, id) => (
+                    <ul>
+                    <ButtonMoves key={id}>{item.move.name}</ButtonMoves>
+                    {/* mudar o button para uma div para estilizar a borda */}
+                    </ul>
+                  ))}
+              </Moves>
+              </MovesFont>
             </MovesContainer>
           </div>
         </DetailsContainer>
       </Container>
     </>
-  );
+    );
 };
 
 export default DetailPage;
