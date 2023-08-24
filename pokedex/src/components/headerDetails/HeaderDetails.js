@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import image1 from "../../utils/image1.png";
 import { useNavigate } from "react-router-dom";
 import { goToHome, goToPokedex } from "../../routes/Coordinator";
 import { Button, ButtonDetail, ContainerDetail, ImgDetail } from "./styled";
-const HeaderDetails = () => {
+import { PokemonCardContext } from "../../contexts/PokemonCardContext";
+const HeaderDetails = ({deletePokemon}) => {
   const navigate = useNavigate();
+ console.log(deletePokemon);
+  const {removePokemon} = useContext(PokemonCardContext)
   return (
     <>
       <ContainerDetail>
@@ -18,7 +21,7 @@ const HeaderDetails = () => {
       </ContainerDetail>
       <ButtonDetail >
         <Button
-          onClick={() => goToPokedex(navigate)}
+onClick={() => removePokemon(deletePokemon)}
         >
           Excluir da Pokédex
         </Button>

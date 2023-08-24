@@ -1,14 +1,19 @@
 import styled from "styled-components";
 
 export const CardDiv = styled.div`
-  display: flex;
+  /* display: flex;
   flex-wrap: wrap;
   background: #5e5e5e;
-  height: 100vh;
-  width: 100vw;
   justify-content: center;
   gap: 1.25rem;
-  padding: 5rem;
+  padding: 5rem; */
+  max-width: 100%;
+  min-height: 80vh;
+  background-color: #5E5E5E;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 30px;
 `;
 
 export const TitlePokedex = styled.div`

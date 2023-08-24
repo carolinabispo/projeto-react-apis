@@ -10,7 +10,7 @@ export const getColors =(types)=>{
           return "#F4D23B";
         case "dairy":
           return "#EC8FE6";
-        case "dighting":
+        case "fighting":
           return "#CE4069";
         case "fire":
           return "#EAAB7D";
@@ -22,7 +22,7 @@ export const getColors =(types)=>{
           return "#729F92";
         case "ground":
           return "#D97745";
-        case "gce":
+        case "ice":
           return "#74CEC0";
         case "normal":
           return "#8A8A8A";
