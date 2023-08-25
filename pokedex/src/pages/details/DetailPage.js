@@ -24,6 +24,7 @@ import {
 import { getTypes } from "../../functions/ReturnPokemonsTypes";
 import HeaderDetails from "../../components/headerDetails/HeaderDetails";
 import { getColors } from "../../functions/ReturnCardColors";
+import { ModalPokemon } from "../../components/modal/ModalPokemon";
 
 const DetailPage = () => {
   const { id } = useParams();
@@ -105,6 +106,7 @@ const DetailPage = () => {
           </div>
         </DetailsContainer>
       </Container>
+      <ModalPokemon/>
     </>
     );
 };

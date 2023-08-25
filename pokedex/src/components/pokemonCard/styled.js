@@ -64,7 +64,7 @@ export const Pokeball = styled.img`
 `;
 
 export const DetailsButton = styled.button`
-  cursor: pointer;
+    cursor: pointer;
   color: #fff;
   font-family: Poppins;
   font-size: 1rem;
@@ -74,6 +74,9 @@ export const DetailsButton = styled.button`
   text-decoration-line: underline;
   background-color: inherit;
   border: none;
+  position: relative; /* Add this line */
+  top: -30px; /* Adjust the value as needed */
+  
 `;
 
 export const Pokemon = styled.img`

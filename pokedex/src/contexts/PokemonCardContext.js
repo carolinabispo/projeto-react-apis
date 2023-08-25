@@ -4,33 +4,51 @@ export const PokemonCardContext = createContext()
 
 const PokemonCardProvider = ({children})=>{
    
-    const [pokemonCart, setPokemonCart] = useState([])
-    // const [name,setName] = useState([])
-    const [pokemonAmount, setPokemonAmount] = useState(0);
+  const [pokemonCart, setPokemonCart] = useState([]);
+  const [pokemonAmount, setPokemonAmount] = useState(0);
 
-   useEffect(()=>{
-    if(pokemonCart){
-        const amount = pokemonCart.reduce((accmulator, currentItem)=>accmulator +1,0)
-        setPokemonAmount(amount)
+  const [modalPokemon, setModalPokemon] = useState(false);
+  const [modalStatus, setModalStatus] = useState();
+
+  useEffect(() => {
+    if (pokemonCart) {
+      const amount = pokemonCart.reduce(
+        (accmulator, currentItem) => accmulator + 1,
+        0
+      );
+      setPokemonAmount(amount);
     }
-   },[pokemonCart])
+  }, [pokemonCart]);
 
-   const addToPokedex = (pokemon, name) =>{
-    const checkPokemon = pokemonCart.find((pokemon)=>pokemon.name === name)
-    if(checkPokemon){
-        console.log('pokemon capturado');
-        return
+  const addToPokedex = (pokemon, name) => {
+    const checkPokemon = pokemonCart.find((pokemon) => pokemon.name === name);
+    if (checkPokemon) {
+      console.log("pokemon capturado");
+      return;
     }
-    setPokemonCart([...pokemonCart,{pokemon,name, amount: 1}])
-   }
+    setPokemonCart([...pokemonCart, { pokemon, name, amount: 1 }]);
 
-   const removePokemon = (name) => {
+    setModalPokemon(true);
+    setModalStatus(0);
+  };
+
+  const removePokemon = (name) => {
     const pokemonRemove = pokemonCart.filter((pokemon) => pokemon.name !== name);
     setPokemonCart(pokemonRemove);
-    
+    // console.log("AQUIII", removePokemon);
+
+    setModalPokemon(true)
+    setModalStatus(1)
   };
 return(
-    <PokemonCardContext.Provider value={{pokemonCart,pokemonAmount,addToPokedex, removePokemon}}>
+    <PokemonCardContext.Provider value={{pokemonCart,
+      pokemonAmount,
+      addToPokedex,
+      removePokemon,
+      modalPokemon,
+      setModalPokemon,
+      modalStatus,
+      setModalStatus,}}>
         {children}
     </PokemonCardContext.Provider>
 

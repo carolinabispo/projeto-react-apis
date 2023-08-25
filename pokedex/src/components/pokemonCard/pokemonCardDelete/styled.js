@@ -71,14 +71,16 @@ export const PokeballPokedex = styled.img`
 export const DetailsButtonPokedex = styled.button`
   cursor: pointer;
   color: #fff;
-  font-size: 15px;
-  font-weight: 600;
+  font-family: Poppins;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
   line-height: normal;
   text-decoration-line: underline;
   background-color: inherit;
   border: none;
-  position: relative;
-  bottom: 10px;
+  position: relative; 
+  top: -30px;
   
 `;
 
