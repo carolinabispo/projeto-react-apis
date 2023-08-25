@@ -77,7 +77,8 @@ export const MovesContainer = styled.div`
   display: flex;
 
   position: absolute;
-  margin-top: 380px;
+  margin-top: 25rem;
+  
   width: 292px;
   height: 28rem;
   top: 184px;
@@ -96,17 +97,18 @@ export const Moves = styled.div`
 `;
 
 export const MovesFont = styled.div`
+
   display: flex;
   align-items: start;
   width: 74px;
   height: 17px;
   font-family: Montserrat, sans-serif;
-  font-size: 25px;
-  font-weight: 700;
+  /* font-size: 25px; */
+  
   line-height: 17px;
   letter-spacing: 0em;
   text-align: left;
-  margin-left: 20px;
+  margin-left: 5rem;
   margin-top: 20px;
 `;
 
@@ -117,6 +119,14 @@ export const ButtonMoves = styled.button`
   height: 37px;
   border: 1px;
   text-transform: capitalize;
+  border-radius: 0.75rem;
+border: 1px dashed rgba(0, 0, 0, 0.14);
+background: #ECECEC;
+display: inline-flex;
+padding: 0.625rem;
+align-items: flex-start;
+gap: 0.625rem;
+
 `;
 
 export const ImageDetail = styled.img`

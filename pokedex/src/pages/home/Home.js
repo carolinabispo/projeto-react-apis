@@ -4,6 +4,7 @@ import PokemonCard from "../../components/pokemonCard/PokemonCard";
 import { ApiContext } from "../../contexts/useApiContext";
 import { getColors } from "../../functions/ReturnCardColors";
 import { Card, Title, Container } from "./styled";
+import { ModalPokemon } from "../../components/modal/ModalPokemon";
 
 const Home = () => {
   const { pokemons } = useContext(ApiContext);
@@ -34,6 +35,7 @@ const Home = () => {
           ))}
         </Card>
       </div>
+      <ModalPokemon/>
     </>
   );
 };
